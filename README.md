@@ -49,3 +49,47 @@ Perbedaan antara `const` dan `final` adalah `const` harus diinisialisasi dengan 
 6. Membuat Card yang Berisi NPM, Nama, dan Kelas dalam class InfoCard.
 7. Membuat 3 button yang berisi icon dan text "Lihat Daftar Produk", "Tambah Produk", dan "Logout".
 
+# Tugas 8
+### Apa kegunaan const di Flutter? Jelaskan apa keuntungan ketika menggunakan const pada kode Flutter. Kapan sebaiknya kita menggunakan const, dan kapan sebaiknya tidak digunakan?
+`const` digunakan untuk membuat variabel yang nilainya konstan pada saat kompilasi. Keuntungan menggunakan `const` adalah mempercepat proses kompilasi dan mengurangi penggunaan memori karena nilai variabel yang sama hanya disimpan sekali. Sebaiknya menggunakan `const` ketika nilai variabel tidak berubah sepanjang aplikasi dan digunakan secara berulang. Sebaliknya, sebaiknya tidak menggunakan `const` ketika nilai variabel dapat berubah atau hanya digunakan sekali.
+
+### Jelaskan dan bandingkan penggunaan Column dan Row pada Flutter. Berikan contoh implementasi dari masing-masing layout widget ini!
+`Column` digunakan untuk menyusun widget secara vertikal alias dari atas ke bawah, sedangkan `Row` digunakan untuk menyusun widget secara horizontal alias dari kiri ke kanan. 
+
+Contoh implementasi `Column`:
+```dart
+content: SingleChildScrollView(
+    child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+                Text('Product Name: $_name'),
+                Text('Description: $_description'),
+                Text('Amount: $_amount'),
+            ],
+        ),
+),
+```
+Contoh implementasi `Row`:
+```dart
+content: SingleChildScrollView(
+    child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+            Text('Product Name: $_name'),
+            Text('Description: $_description'),
+            Text('Amount: $_amount'),
+        ],
+    ),
+),
+```
+
+### Sebutkan apa saja elemen input yang kamu gunakan pada halaman form yang kamu buat pada tugas kali ini. Apakah terdapat elemen input Flutter lain yang tidak kamu gunakan pada tugas ini? Jelaskan!
+Elemen input yang digunakan pada halaman form adalah `TextFormField` untuk memasukkan name, description, dan amount. Elemen input Flutter lain yang tidak digunakan pada tugas ini adalah `CupertinoTextField` yang memiliki desain khas iOS.
+
+### Bagaimana cara kamu mengatur tema (theme) dalam aplikasi Flutter agar aplikasi yang dibuat konsisten? Apakah kamu mengimplementasikan tema pada aplikasi yang kamu buat?
+Cara mengatur tema dalam aplikasi Flutter adalah dengan menggunakan `ThemeData` dan `Theme` di dalam `MaterialApp`. Dengan menggunakan `ThemeData`, kita dapat mengatur warna, font, dan gaya widget secara konsisten di seluruh aplikasi. Pengimplementasian tema pada aplikasi agar konsisten dilakukan dengan menambahkan `ThemeData` di dalam `MaterialApp` dan mengatur warna primer dan sekunder serta font default.
+
+### Bagaimana cara kamu menangani navigasi dalam aplikasi dengan banyak halaman pada Flutter?
+Navigasi dalam aplikasi dengan banyak halaman pada Flutter dapat ditangani dengan menggunakan `Navigator` dan `MaterialPageRoute`. Dengan `Navigator`, kita dapat melakukan navigasi antar halaman dengan push dan pop. Untuk melakukan navigasi, kita dapat menggunakan `Navigator.push()` untuk menambahkan halaman baru dan `Navigator.pop()` untuk kembali ke halaman sebelumnya. Selain itu, kita juga dapat menggunakan `MaterialPageRoute` untuk mengatur transisi antar halaman.
+
+
