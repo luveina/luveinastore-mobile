@@ -92,4 +92,41 @@ Cara mengatur tema dalam aplikasi Flutter adalah dengan menggunakan `ThemeData` 
 ### Bagaimana cara kamu menangani navigasi dalam aplikasi dengan banyak halaman pada Flutter?
 Navigasi dalam aplikasi dengan banyak halaman pada Flutter dapat ditangani dengan menggunakan `Navigator` dan `MaterialPageRoute`. Dengan `Navigator`, kita dapat melakukan navigasi antar halaman dengan push dan pop. Untuk melakukan navigasi, kita dapat menggunakan `Navigator.push()` untuk menambahkan halaman baru dan `Navigator.pop()` untuk kembali ke halaman sebelumnya. Selain itu, kita juga dapat menggunakan `MaterialPageRoute` untuk mengatur transisi antar halaman.
 
+# Tugas 9
+### Jelaskan mengapa kita perlu membuat model untuk melakukan pengambilan ataupun pengiriman data JSON? Apakah akan terjadi error jika kita tidak membuat model terlebih dahulu?
+Model digunakan untuk mengonversi data JSON menjadi objek yang dapat diakses dan diubah dengan mudah. Dengan model, kita dapat mengatur struktur data yang akan diambil atau dikirim sehingga memudahkan proses pengambilan dan pengiriman data. Jika tidak membuat model terlebih dahulu, maka akan sulit untuk mengakses data JSON karena data tersebut hanya berupa string dan tidak memiliki struktur yang jelas.
 
+### Jelaskan fungsi dari library http yang sudah kamu implementasikan pada tugas ini
+Library http digunakan untuk melakukan permintaan HTTP ke server dan menerima respon dari server. Dengan library http, kita dapat melakukan berbagai metode HTTP seperti GET, POST, PUT, DELETE, dll. Library http juga menyediakan berbagai fitur seperti header, body, dan parameter untuk mengirim data ke server dan menerima respon dari server.
+
+### Jelaskan fungsi dari CookieRequest dan jelaskan mengapa instance CookieRequest perlu untuk dibagikan ke semua komponen di aplikasi Flutter.
+CookieRequest adalah class yang digunakan untuk membuat permintaan HTTP dengan cookie. CookieRequest perlu dibagikan ke semua komponen di aplikasi Flutter agar cookie yang diterima dari server dapat disimpan dan digunakan di seluruh aplikasi. Dengan menggunakan CookieRequest, kita dapat menyimpan cookie yang diterima dari server dan mengirim cookie saat melakukan permintaan HTTP ke server.
+
+### Jelaskan mekanisme pengiriman data mulai dari input hingga dapat ditampilkan pada Flutter.
+Mekanisme pengiriman data mulai dari input hingga dapat ditampilkan pada Flutter adalah sebagai berikut:
+1. Membuat form input dengan TextFormField untuk memasukkan data.
+2. Menyimpan data yang dimasukkan oleh pengguna ke dalam variabel.
+3. Mengirim data ke server dengan menggunakan library http dan CookieRequest.
+4. Menerima respon dari server dan mengonversi respon menjadi objek yang dapat diakses.
+5. Menampilkan data yang diterima dari server ke dalam widget seperti Text atau ListView.
+
+### Jelaskan mekanisme autentikasi dari login, register, hingga logout. Mulai dari input data akun pada Flutter ke Django hingga selesainya proses autentikasi oleh Django dan tampilnya menu pada Flutter.
+Mekanisme autentikasi dari login, register, hingga logout adalah sebagai berikut:
+1. Pengguna memasukkan data akun seperti username dan password pada form login atau register di Flutter.
+2. Data akun yang dimasukkan oleh pengguna dikirim ke server Django dengan menggunakan library http dan CookieRequest.
+3. Server Django melakukan autentikasi data akun yang diterima dari Flutter.
+4. Jika autentikasi berhasil, server Django mengirim respon berupa token atau cookie ke Flutter.
+5. Flutter menyimpan token atau cookie yang diterima dari server Django dan menampilkan menu atau halaman utama aplikasi.
+
+### Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step! (bukan hanya sekadar mengikuti tutorial).
+1. Membuat app baru dengan nama "authentication" di project Django sebelumnya dan membuat fungsi-fungsi untuk login, logout, dan register pada `views.py` yang terdapat di dalamnya.
+2. Menginstall package yang telah disediakan oleh tim asisten dosen dengan cara menjalankan:
+```dart
+flutter pub add provider
+flutter pub add pbp_django_auth
+```
+3. Memodifikasi root widget agar menyediakan CookieRequest library ke semua child widgets dengan menggunakan Provider.
+4. Membuat berkas `login.dart` dan `register.dart` yang akan memanfaatkan CookieRequest untuk melakukan autentikasi.
+5. Membuat model pada flutter untuk menyimpan data user yang diterima dari server Django dengan menggunakan Quicktype.
+6. Menerapkan fetch data dari Django untuk ditampilkan ke Flutter.
+7. Mengintegrasikan form pada Flutter dengan layanan Django.

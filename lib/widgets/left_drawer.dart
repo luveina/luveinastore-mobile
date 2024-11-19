@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:luveinastore/screens/menu.dart';
 import 'package:luveinastore/screens/product_form.dart';
+import 'package:luveinastore/screens/list_productentry.dart';
 
 class LeftDrawer extends StatelessWidget {
   const LeftDrawer({super.key});
@@ -51,18 +52,29 @@ class LeftDrawer extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: const Icon(Icons.mood),
+            leading: const Icon(Icons.add),
             title: const Text('Tambah Produk'),
             // Bagian redirection ke MoodEntryFormPage
             onTap: () {
               Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => ProductFormPage(),
-                    ));
-
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ProductFormPage(),
+                  ));
             },
           ),
+          ListTile(
+            leading: const Icon(Icons.local_offer_rounded ),
+            title: const Text('Daftar Produk'),
+            onTap: () {
+              // Route menu ke halaman mood
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const ProductEntryPage()),
+              );
+            },
+          ),
+          
         ],
       ),
     );
